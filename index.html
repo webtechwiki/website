@@ -801,11 +801,50 @@
         const iconContainer = document.getElementById('iconContainer');
         const icons = CONFIG.floatingIcons;
 
-        icons.forEach(icon => {
+        icons.forEach((icon, index) => {
             const iconEl = document.createElement('div');
             iconEl.className = 'floating-icon';
-            iconEl.style.left = icon.x + '%';
-            iconEl.style.top = icon.y + '%';
+            
+            // 围绕hero-right区域分布图标
+            // 在右半边区域内随机分布，但避开中心的插图区域
+            const rightAreaStart = 55; // 右半边开始位置
+            const rightAreaWidth = 40; // 右半边可用宽度
+            
+            // 根据原始配置调整到右半边区域
+            let adjustedX = rightAreaStart + (icon.x / 100) * rightAreaWidth;
+            
+            // 调整Y坐标，避免图标太靠近顶部
+            // 将原来的0-100%映射到8-92%，给顶部留出少量空间
+            let adjustedY = 8 + (icon.y / 100) * 84;
+            
+            // 如果图标太靠近中心插图区域，向外推移
+            const centerX = 75; // 插图大概在75%位置
+            const centerY = 50; // 插图大概在50%高度位置
+            const avoidRadius = 15; // 避开插图的半径
+            
+            const distanceFromCenter = Math.sqrt(
+                Math.pow(adjustedX - centerX, 2) + 
+                Math.pow(adjustedY - centerY, 2)
+            );
+            
+            if (distanceFromCenter < avoidRadius) {
+                // 如果太靠近中心，向边缘推移
+                if (adjustedX < centerX) {
+                    adjustedX = Math.max(rightAreaStart, adjustedX - 10);
+                } else {
+                    adjustedX = Math.min(95, adjustedX + 10);
+                }
+                
+                // 垂直方向也进行调整
+                if (adjustedY < centerY) {
+                    adjustedY = Math.max(8, adjustedY - 5);
+                } else {
+                    adjustedY = Math.min(92, adjustedY + 5);
+                }
+            }
+            
+            iconEl.style.left = adjustedX + '%';
+            iconEl.style.top = adjustedY + '%';
             iconEl.style.animationDelay = icon.delay + 's';
             iconEl.innerHTML = `<img src="${icon.src}" alt="${icon.alt}">`;
             iconContainer.appendChild(iconEl);
@@ -826,10 +865,15 @@
 
             const floatingIcons = document.querySelectorAll('.floating-icon');
             floatingIcons.forEach((icon, index) => {
-                const speed = (index % 3 + 1) * 15;
+                const speed = (index % 3 + 1) * 10; // 减小移动幅度
                 const x = currentX * speed;
                 const y = currentY * speed;
-                icon.style.transform = `translate(${x}px, ${y}px)`;
+                
+                // 获取当前图标位置，确保不会移出右半边区域
+                const currentLeft = parseFloat(icon.style.left);
+                const newX = Math.max(-20, Math.min(20, x)); // 限制移动范围
+                
+                icon.style.transform = `translate(${newX}px, ${y}px)`;
             });
 
             requestAnimationFrame(animate);
