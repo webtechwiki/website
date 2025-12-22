@@ -17,10 +17,10 @@ const CONFIG = {
             delay: 0.5
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-plain.svg',
+            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
             alt: 'Rust',
-            x: 15,
-            y: 65,
+            x: 25,
+            y: 85,
             delay: 1
         },
         {
@@ -33,8 +33,8 @@ const CONFIG = {
         {
             src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
             alt: 'Go',
-            x: 10,
-            y: 40,
+            x: 75,
+            y: 88,
             delay: 2
         },
         {

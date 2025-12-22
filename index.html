@@ -90,12 +90,14 @@
             right: 0;
             bottom: 0;
             pointer-events: none;
+            z-index: 5;
         }
 
         .floating-icon {
             position: absolute;
             transition: transform 0.1s ease-out;
             animation: float 8s ease-in-out infinite;
+            z-index: 15;
         }
 
         @keyframes float {
@@ -711,10 +713,7 @@
 
                 <div class="wechat-section">
                     <div class="qr-code">
-                        <svg viewBox="0 0 100 100" style="width: 100%; height: 100%;">
-                            <rect width="100" height="100" fill="#f0f0f0"/>
-                            <text x="50" y="50" text-anchor="middle" dominant-baseline="middle" font-size="12" fill="#999">二维码</text>
-                        </svg>
+                        <img src="img/qrcode.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
                     </div>
                     <div class="wechat-text">
                         <div class="wechat-title">微信搜一搜</div>
@@ -792,6 +791,14 @@
         </div>
         <div class="footer-bottom">
             <p>Copyright © 2024 webtech | All Rights Reserved</p>
+            <p style="margin-top: 8px; display: flex; align-items: center; justify-content: center; gap: 8px;">
+                <a href="https://beian.miit.gov.cn/" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
+                <span style="color: rgba(255, 255, 255, 0.6);">|</span>
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                    <img src="img/beian.png" alt="公安备案" style="width: 16px; height: 16px;">
+                    贵公网安备52263202522684号
+                </a>
+            </p>
         </div>
     </footer>
 
@@ -806,7 +813,7 @@
             iconEl.className = 'floating-icon';
             
             // 围绕hero-right区域分布图标
-            // 在右半边区域内随机分布，但避开中心的插图区域
+            // 在右半边区域内分布，但避开中心的插图区域
             const rightAreaStart = 55; // 右半边开始位置
             const rightAreaWidth = 40; // 右半边可用宽度
             
@@ -814,13 +821,12 @@
             let adjustedX = rightAreaStart + (icon.x / 100) * rightAreaWidth;
             
             // 调整Y坐标，避免图标太靠近顶部
-            // 将原来的0-100%映射到8-92%，给顶部留出少量空间
             let adjustedY = 8 + (icon.y / 100) * 84;
             
-            // 如果图标太靠近中心插图区域，向外推移
+            // 插图区域的中心和范围
             const centerX = 75; // 插图大概在75%位置
             const centerY = 50; // 插图大概在50%高度位置
-            const avoidRadius = 15; // 避开插图的半径
+            const avoidRadius = 18; // 增大避开插图的半径，确保Go和Rust图标不被遮挡
             
             const distanceFromCenter = Math.sqrt(
                 Math.pow(adjustedX - centerX, 2) + 
@@ -828,19 +834,16 @@
             );
             
             if (distanceFromCenter < avoidRadius) {
-                // 如果太靠近中心，向边缘推移
-                if (adjustedX < centerX) {
-                    adjustedX = Math.max(rightAreaStart, adjustedX - 10);
-                } else {
-                    adjustedX = Math.min(95, adjustedX + 10);
-                }
+                // 计算从中心到图标的角度
+                const angle = Math.atan2(adjustedY - centerY, adjustedX - centerX);
                 
-                // 垂直方向也进行调整
-                if (adjustedY < centerY) {
-                    adjustedY = Math.max(8, adjustedY - 5);
-                } else {
-                    adjustedY = Math.min(92, adjustedY + 5);
-                }
+                // 将图标推到避让半径之外
+                adjustedX = centerX + Math.cos(angle) * avoidRadius;
+                adjustedY = centerY + Math.sin(angle) * avoidRadius;
+                
+                // 确保图标不会超出边界
+                adjustedX = Math.max(rightAreaStart, Math.min(95, adjustedX));
+                adjustedY = Math.max(8, Math.min(92, adjustedY));
             }
             
             iconEl.style.left = adjustedX + '%';
@@ -869,11 +872,11 @@
                 const x = currentX * speed;
                 const y = currentY * speed;
                 
-                // 获取当前图标位置，确保不会移出右半边区域
-                const currentLeft = parseFloat(icon.style.left);
-                const newX = Math.max(-20, Math.min(20, x)); // 限制移动范围
+                // 限制移动范围，确保图标不会移出右半边区域
+                const newX = Math.max(-15, Math.min(15, x));
+                const newY = Math.max(-15, Math.min(15, y));
                 
-                icon.style.transform = `translate(${newX}px, ${y}px)`;
+                icon.style.transform = `translate(${newX}px, ${newY}px)`;
             });
 
             requestAnimationFrame(animate);
