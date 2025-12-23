@@ -3,70 +3,70 @@ const CONFIG = {
     // 背景浮动图标配置（视差滚动效果）
     floatingIcons: [
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg',
+            src: 'img/icons/linux.svg',
             alt: 'Linux',
             x: 8,
             y: 15,
             delay: 0
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg',
+            src: 'img/icons/kubernetes.svg',
             alt: 'Kubernetes',
             x: 88,
             y: 12,
             delay: 0.5
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg',
+            src: 'img/icons/rust.svg',
             alt: 'Rust',
             x: 25,
             y: 85,
             delay: 1
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg',
+            src: 'img/icons/docker.svg',
             alt: 'Docker',
             x: 85,
             y: 70,
             delay: 1.5
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg',
+            src: 'img/icons/go.svg',
             alt: 'Go',
             x: 75,
             y: 88,
             delay: 2
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+            src: 'img/icons/python.svg',
             alt: 'Python',
             x: 90,
             y: 45,
             delay: 2.5
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg',
+            src: 'img/icons/nodejs.svg',
             alt: 'Node.js',
             x: 50,
             y: 8,
             delay: 3
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg',
+            src: 'img/icons/postgresql.svg',
             alt: 'PostgreSQL',
             x: 45,
             y: 75,
             delay: 3.5
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg',
+            src: 'img/icons/redis.svg',
             alt: 'Redis',
             x: 25,
             y: 20,
             delay: 4
         },
         {
-            src: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg',
+            src: 'img/icons/prometheus.svg',
             alt: 'Prometheus',
             x: 75,
             y: 25,
