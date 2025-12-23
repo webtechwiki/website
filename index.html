@@ -2,23 +2,47 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
+    <meta lang="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web技术文档 | webtech.wiki</title>
+    
+    <!-- 预连接优化 - 提前建立连接 -->
+    <link rel="preconnect" href="https://github.com" crossorigin>
+    <link rel="preconnect" href="https://space.bilibili.com" crossorigin>
+    <link rel="preconnect" href="https://juejin.cn" crossorigin>
+    <link rel="preconnect" href="https://www.zhihu.com" crossorigin>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="config.js" as="script">
+    <link rel="preload" href="img/qrcode.jpg" as="image">
+    
+    <!-- DNS预解析 -->
+    <link rel="dns-prefetch" href="//beian.miit.gov.cn">
+    <link rel="dns-prefetch" href="//www.beian.gov.cn">
+    
+    <!-- 关键CSS内联优化 -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* 关键渲染路径CSS - 首屏必需样式 */
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;overflow-x:hidden;background:linear-gradient(135deg,#e3f2fd 0%,#f3e5f5 50%,#fff9c4 100%);color:#333;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
+        nav{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);contain:layout style paint}
+        .nav-container{max-width:1400px;margin:0 auto;height:100%;display:flex;justify-content:space-between;align-items:center;padding:0 40px}
+        .logo{font-size:22px;font-weight:600;color:#2196F3;display:flex;align-items:center;gap:10px}
+        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:100px 40px 60px}
+    </style>
+    <style>
+        /* 非关键CSS - 完整样式 */
+        /* 启用硬件加速 */
+        .floating-icon,
+        .tech-item,
+        .project-card,
+        .blog-card {
+            will-change: transform;
+            transform: translateZ(0);
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 50%, #fff9c4 100%);
-            color: #333;
-        }
 
-        /* 导航栏 */
+        /* 导航栏 - 优化性能 */
         nav {
             position: fixed;
             top: 0;
@@ -29,6 +53,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            contain: layout style paint;
         }
 
         .nav-container {
@@ -98,6 +123,8 @@
             transition: transform 0.1s ease-out;
             animation: float 8s ease-in-out infinite;
             z-index: 15;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         @keyframes float {
@@ -447,7 +474,7 @@
         }
 
         .tech-stack-section .section-title::before {
-            content: '⚡';
+            content: '🎯';
         }
 
         /* 技术栈动画效果 */
@@ -652,7 +679,7 @@
             <div class="logo">web技术文档</div>
             <ul class="nav-links">
                 <li><a href="#home">首页</a></li>
-                <li><a href="#tech-stack">技术栈</a></li>
+                <li><a href="#tech-stack">开发路径</a></li>
                 <li><a href="#projects">开源项目</a></li>
                 <li><a href="#docs">技术笔记</a></li>
             </ul>
@@ -668,16 +695,16 @@
                 <p>我是作者，热爱开源的开发者，欢迎一起交流学习。</p>
                 
                 <div class="social-links">
-                    <a href="https://github.com/geekdex" class="social-icon" title="GitHub" target="_blank">💻</a>
-                    <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩" target="_blank">📺</a>
-                    <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金" target="_blank">📘</a>
-                    <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎" target="_blank">📖</a>
-                    <a href="pan.hy@foxmail.com" class="social-icon" title="邮箱" target="_blank">✉️</a>
+                    <a href="https://github.com/geekdex" class="social-icon" title="GitHub" target="_blank" rel="noopener">💻</a>
+                    <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩" target="_blank" rel="noopener">📺</a>
+                    <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金" target="_blank" rel="noopener">📘</a>
+                    <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎" target="_blank" rel="noopener">📖</a>
+                    <a href="pan.hy@foxmail.com" class="social-icon" title="邮箱" target="_blank" rel="noopener">✉️</a>
                 </div>
 
                 <div class="wechat-section">
                     <div class="qr-code">
-                        <img src="img/qrcode.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                        <img src="img/qrcode.jpg" alt="微信二维码" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" loading="lazy">
                     </div>
                     <div class="wechat-text">
                         <div class="wechat-title">微信搜一搜</div>
@@ -706,10 +733,10 @@
         </div>
     </section>
 
-    <!-- 技术栈展示区域 -->
+    <!-- 开发路径展示区域 -->
     <section class="tech-stack-section" id="tech-stack">
         <div class="section-header">
-            <h2 class="section-title">技术栈</h2>
+            <h2 class="section-title">开发路径</h2>
         </div>
         <div class="tech-stack-container">
             <div class="tech-grid" id="techStackContainer"></div>
@@ -729,133 +756,149 @@
     <footer>
         <div class="footer-bottom">
             <p style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <a href="https://beian.miit.gov.cn/" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
                 <span style="color: rgba(255, 255, 255, 0.6);">|</span>
-                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
-                    <img src="img/beian.png" alt="公安备案" style="width: 16px; height: 16px;">
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                    <img src="img/beian.png" alt="公安备案" style="width: 16px; height: 16px;" loading="lazy">
                     贵公网安备52263202522684号
                 </a>
             </p>
         </div>
     </footer>
 
-    <script src="config.js"></script>
-    <script>
-        // 创建浮动图标
-        const iconContainer = document.getElementById('iconContainer');
-        const icons = CONFIG.floatingIcons;
+    <script src="config.js" defer></script>
+    <script defer>
+        // 延迟加载非关键功能
+        document.addEventListener('DOMContentLoaded', function() {
+            // 创建浮动图标
+            const iconContainer = document.getElementById('iconContainer');
+            const icons = CONFIG.floatingIcons;
 
-        icons.forEach((icon, index) => {
-            const iconEl = document.createElement('div');
-            iconEl.className = 'floating-icon';
-            
-            // 围绕hero-right区域分布图标
-            // 在右半边区域内分布，但避开中心的插图区域
-            const rightAreaStart = 55; // 右半边开始位置
-            const rightAreaWidth = 40; // 右半边可用宽度
-            
-            // 根据原始配置调整到右半边区域
-            let adjustedX = rightAreaStart + (icon.x / 100) * rightAreaWidth;
-            
-            // 调整Y坐标，避免图标太靠近顶部
-            let adjustedY = 8 + (icon.y / 100) * 84;
-            
-            // 插图区域的中心和范围
-            const centerX = 75; // 插图大概在75%位置
-            const centerY = 50; // 插图大概在50%高度位置
-            const avoidRadius = 18; // 增大避开插图的半径，确保Go和Rust图标不被遮挡
-            
-            const distanceFromCenter = Math.sqrt(
-                Math.pow(adjustedX - centerX, 2) + 
-                Math.pow(adjustedY - centerY, 2)
-            );
-            
-            if (distanceFromCenter < avoidRadius) {
-                // 计算从中心到图标的角度
-                const angle = Math.atan2(adjustedY - centerY, adjustedX - centerX);
+            icons.forEach((icon, index) => {
+                const iconEl = document.createElement('div');
+                iconEl.className = 'floating-icon';
                 
-                // 将图标推到避让半径之外
-                adjustedX = centerX + Math.cos(angle) * avoidRadius;
-                adjustedY = centerY + Math.sin(angle) * avoidRadius;
+                // 围绕hero-right区域分布图标
+                // 在右半边区域内分布，但避开中心的插图区域
+                const rightAreaStart = 55; // 右半边开始位置
+                const rightAreaWidth = 40; // 右半边可用宽度
                 
-                // 确保图标不会超出边界
-                adjustedX = Math.max(rightAreaStart, Math.min(95, adjustedX));
-                adjustedY = Math.max(8, Math.min(92, adjustedY));
-            }
-            
-            iconEl.style.left = adjustedX + '%';
-            iconEl.style.top = adjustedY + '%';
-            iconEl.style.animationDelay = icon.delay + 's';
-            iconEl.innerHTML = `<img src="${icon.src}" alt="${icon.alt}">`;
-            iconContainer.appendChild(iconEl);
-        });
-
-        // 鼠标移动视差效果
-        let mouseX = 0, mouseY = 0;
-        let currentX = 0, currentY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
-            mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
-        });
-
-        function animate() {
-            currentX += (mouseX - currentX) * 0.1;
-            currentY += (mouseY - currentY) * 0.1;
-
-            const floatingIcons = document.querySelectorAll('.floating-icon');
-            floatingIcons.forEach((icon, index) => {
-                const speed = (index % 3 + 1) * 10; // 减小移动幅度
-                const x = currentX * speed;
-                const y = currentY * speed;
+                // 根据原始配置调整到右半边区域
+                let adjustedX = rightAreaStart + (icon.x / 100) * rightAreaWidth;
                 
-                // 限制移动范围，确保图标不会移出右半边区域
-                const newX = Math.max(-15, Math.min(15, x));
-                const newY = Math.max(-15, Math.min(15, y));
+                // 调整Y坐标，避免图标太靠近顶部
+                let adjustedY = 8 + (icon.y / 100) * 84;
                 
-                icon.style.transform = `translate(${newX}px, ${newY}px)`;
+                // 插图区域的中心和范围
+                const centerX = 75; // 插图大概在75%位置
+                const centerY = 50; // 插图大概在50%高度位置
+                const avoidRadius = 18; // 增大避开插图的半径，确保Go和Rust图标不被遮挡
+                
+                const distanceFromCenter = Math.sqrt(
+                    Math.pow(adjustedX - centerX, 2) + 
+                    Math.pow(adjustedY - centerY, 2)
+                );
+                
+                if (distanceFromCenter < avoidRadius) {
+                    // 计算从中心到图标的角度
+                    const angle = Math.atan2(adjustedY - centerY, adjustedX - centerX);
+                    
+                    // 将图标推到避让半径之外
+                    adjustedX = centerX + Math.cos(angle) * avoidRadius;
+                    adjustedY = centerY + Math.sin(angle) * avoidRadius;
+                    
+                    // 确保图标不会超出边界
+                    adjustedX = Math.max(rightAreaStart, Math.min(95, adjustedX));
+                    adjustedY = Math.max(8, Math.min(92, adjustedY));
+                }
+                
+                iconEl.style.left = adjustedX + '%';
+                iconEl.style.top = adjustedY + '%';
+                iconEl.style.animationDelay = icon.delay + 's';
+                iconEl.innerHTML = `<img src="${icon.src}" alt="${icon.alt}" loading="lazy">`;
+                iconContainer.appendChild(iconEl);
             });
 
-            requestAnimationFrame(animate);
-        }
-        animate();
+            // 鼠标移动视差效果 - 使用requestIdleCallback优化
+            let mouseX = 0, mouseY = 0;
+            let currentX = 0, currentY = 0;
+            let animationId;
 
-        // 加载技术栈
-        const techStackContainer = document.getElementById('techStackContainer');
-        CONFIG.techStack.forEach((tech, index) => {
-            const item = document.createElement('div');
-            item.className = 'tech-item';
-            item.style.animationDelay = (index * 0.1) + 's';
-            item.innerHTML = `
-                <div class="tech-icon">${tech.icon}</div>
-                <div class="tech-name">${tech.name}</div>
-                <div class="tech-description">${tech.description}</div>
-            `;
-            techStackContainer.appendChild(item);
-        });
+            document.addEventListener('mousemove', (e) => {
+                mouseX = (e.clientX / window.innerWidth - 0.5) * 2;
+                mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
+            });
 
-        // 加载项目
-        const projectsContainer = document.getElementById('projectsContainer');
-        CONFIG.projects.forEach(project => {
-            const card = document.createElement('div');
-            card.className = 'project-card';
-            card.innerHTML = `
-                <div class="project-icon">${project.icon}</div>
-                <h3>${project.name}</h3>
-                <p>${project.description}</p>
-                <a href="${project.link}" class="project-link" target="_blank">源码</a>
-            `;
-            projectsContainer.appendChild(card);
-        });
+            function animate() {
+                currentX += (mouseX - currentX) * 0.1;
+                currentY += (mouseY - currentY) * 0.1;
 
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
+                const floatingIcons = document.querySelectorAll('.floating-icon');
+                floatingIcons.forEach((icon, index) => {
+                    const speed = (index % 3 + 1) * 10; // 减小移动幅度
+                    const x = currentX * speed;
+                    const y = currentY * speed;
+                    
+                    // 限制移动范围，确保图标不会移出右半边区域
+                    const newX = Math.max(-15, Math.min(15, x));
+                    const newY = Math.max(-15, Math.min(15, y));
+                    
+                    icon.style.transform = `translate(${newX}px, ${newY}px)`;
+                });
+
+                animationId = requestAnimationFrame(animate);
+            }
+            
+            // 使用Intersection Observer优化动画性能
+            const heroSection = document.querySelector('.hero');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animate();
+                    } else {
+                        cancelAnimationFrame(animationId);
+                    }
+                });
+            });
+            observer.observe(heroSection);
+
+            // 加载技术栈
+            const techStackContainer = document.getElementById('techStackContainer');
+            CONFIG.techStack.forEach((tech, index) => {
+                const item = document.createElement('div');
+                item.className = 'tech-item';
+                item.style.animationDelay = (index * 0.1) + 's';
+                item.innerHTML = `
+                    <div class="tech-icon">${tech.icon}</div>
+                    <div class="tech-name">${tech.name}</div>
+                    <div class="tech-description">${tech.description}</div>
+                `;
+                techStackContainer.appendChild(item);
+            });
+
+            // 加载项目
+            const projectsContainer = document.getElementById('projectsContainer');
+            CONFIG.projects.forEach(project => {
+                const card = document.createElement('div');
+                card.className = 'project-card';
+                card.innerHTML = `
+                    <div class="project-icon">${project.icon}</div>
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                    <a href="${project.link}" class="project-link" target="_blank" rel="noopener">源码</a>
+                `;
+                projectsContainer.appendChild(card);
+            });
+
+            // 平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
             });
         });
     </script>
