@@ -6,6 +6,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web技术文档 | webtech.wiki</title>
     
+    <!-- SEO优化 -->
+    <meta name="description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程。涵盖JavaScript、Python、Go、Rust、Docker、Kubernetes等热门技术栈。">
+    <meta name="keywords" content="Web技术文档,前端开发,后端开发,JavaScript,Python,Go,Rust,Docker,Kubernetes,技术教程,开发者社区">
+    <meta name="author" content="极客开发者">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://webtech.wiki/">
+    <meta property="og:title" content="Web技术文档 | webtech.wiki">
+    <meta property="og:description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程">
+    <meta property="og:image" content="https://webtech.wiki/img/qrcode.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://webtech.wiki/">
+    <meta property="twitter:title" content="Web技术文档 | webtech.wiki">
+    <meta property="twitter:description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程">
+    <meta property="twitter:image" content="https://webtech.wiki/img/qrcode.jpg">
+    
+    <!-- 网站图标 -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Web技术文档",
+      "url": "https://webtech.wiki",
+      "description": "专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程",
+      "author": {
+        "@type": "Person",
+        "name": "极客开发者"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://webtech.wiki/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <!-- 预连接优化 - 提前建立连接 -->
     <link rel="preconnect" href="https://github.com" crossorigin>
     <link rel="preconnect" href="https://space.bilibili.com" crossorigin>
@@ -669,6 +713,114 @@
             .blog-grid, .projects-grid {
                 grid-template-columns: 1fr;
             }
+            
+            /* 移动端备案信息分两行显示 */
+            .footer-bottom p {
+                flex-direction: column !important;
+                gap: 8px !important;
+                line-height: 1.6;
+            }
+            
+            .footer-bottom p span {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 20px;
+            }
+            
+            .hero {
+                padding: 100px 20px 60px;
+            }
+            
+            .hero-left h1 {
+                font-size: 28px;
+            }
+            
+            .hero-left p {
+                font-size: 16px;
+            }
+            
+            .wechat-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .qr-code {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .tech-stack-section,
+            .blog-section,
+            .projects-section {
+                padding: 60px 20px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 20px;
+            }
+            
+            .tech-item {
+                padding: 20px 15px;
+            }
+            
+            .tech-icon {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .tech-name {
+                font-size: 16px;
+            }
+            
+            .tech-description {
+                font-size: 12px;
+            }
+            
+            .projects-grid {
+                gap: 20px;
+            }
+            
+            .project-card {
+                padding: 20px;
+            }
+            
+            .floating-icon img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-left h1 {
+                font-size: 24px;
+            }
+            
+            .social-links {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .tech-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .logo {
+                font-size: 18px;
+            }
         }
     </style>
 </head>
@@ -681,7 +833,7 @@
                 <li><a href="#home">首页</a></li>
                 <li><a href="#tech-stack">开发路径</a></li>
                 <li><a href="#projects">开源项目</a></li>
-                <li><a href="#docs">技术笔记</a></li>
+                <li><a href="https://aoco.tech" target="_blank">博客</a></li>
             </ul>
         </div>
     </nav>
