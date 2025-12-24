@@ -358,7 +358,7 @@
 
         .search-button {
             padding: 12px 30px;
-            background: #4CAF50;
+            background: #2E7D32; /* 更深的绿色以提高对比度 */
             color: white;
             border: none;
             border-radius: 25px;
@@ -368,13 +368,13 @@
             align-items: center;
             gap: 8px;
             transition: all 0.3s;
-            box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
         }
 
         .search-button:hover {
-            background: #45a049;
+            background: #1B5E20; /* 更深的绿色悬停状态 */
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(76, 175, 80, 0.4);
+            box-shadow: 0 6px 16px rgba(27, 94, 32, 0.4);
         }
 
         .search-button::before {
@@ -647,17 +647,19 @@
         }
 
         .view-more {
-            color: #2196F3;
+            color: #0D47A1; /* 更深的蓝色以提高对比度 */
             text-decoration: none;
             display: flex;
             align-items: center;
             gap: 5px;
             font-size: 15px;
             transition: gap 0.3s;
+            font-weight: 500; /* 增加字体重量以提高可读性 */
         }
 
         .view-more:hover {
             gap: 10px;
+            color: #0A3578; /* 悬停时更深的蓝色 */
         }
 
         .blog-grid {
@@ -751,17 +753,18 @@
 
         .project-link {
             display: inline-block;
-            color: #2196F3;
+            color: #0D47A1; /* 更深的蓝色以提高对比度 */
             text-decoration: none;
             font-size: 14px;
             padding: 8px 20px;
-            border: 1px solid #2196F3;
+            border: 1px solid #0D47A1;
             border-radius: 20px;
             transition: all 0.3s;
+            font-weight: 500; /* 增加字体重量 */
         }
 
         .project-link:hover {
-            background: #2196F3;
+            background: #0D47A1;
             color: white;
         }
 
@@ -774,8 +777,19 @@
 
         .footer-bottom {
             text-align: center;
-            color: rgba(255, 255, 255, 0.6);
+            color: rgba(255, 255, 255, 0.9); /* 提高对比度 */
             font-size: 14px;
+        }
+        
+        .footer-bottom a {
+            color: rgba(255, 255, 255, 0.95); /* 链接使用更高对比度 */
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-bottom a:hover {
+            color: #ffffff; /* 悬停时纯白色 */
+            text-decoration: underline;
         }
 
         /* 跳过导航链接样式 - 屏幕阅读器可访问性 */
@@ -1075,12 +1089,10 @@
     <footer role="contentinfo">
         <div class="footer-bottom">
             <p style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener"
-                    style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
-                <span style="color: rgba(255, 255, 255, 0.6);">|</span>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener">黔ICP备2024030886号-2</a>
+                <span style="color: rgba(255, 255, 255, 0.8);">|</span>
                 <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank"
-                    rel="noopener"
-                    style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                    rel="noopener" style="display: inline-flex; align-items: center; gap: 4px;">
                     <img src="img/beian.png" alt="公安备案" style="width: 16px; height: 17px;" loading="lazy">
                     贵公网安备52263202522684号
                 </a>
