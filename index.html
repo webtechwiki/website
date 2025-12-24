@@ -1,35 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta lang="zh-CN">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web技术文档 | webtech.wiki</title>
-    
+
     <!-- SEO优化 -->
-    <meta name="description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程。涵盖JavaScript、Python、Go、Rust、Docker、Kubernetes等热门技术栈。">
+    <meta name="description"
+        content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程。涵盖JavaScript、Python、Go、Rust、Docker、Kubernetes等热门技术栈。">
     <meta name="keywords" content="Web技术文档,前端开发,后端开发,JavaScript,Python,Go,Rust,Docker,Kubernetes,技术教程,开发者社区">
     <meta name="author" content="极客开发者">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://webtech.wiki/">
     <meta property="og:title" content="Web技术文档 | webtech.wiki">
     <meta property="og:description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程">
     <meta property="og:image" content="https://webtech.wiki/img/qrcode.jpg">
-    
+
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://webtech.wiki/">
     <meta property="twitter:title" content="Web技术文档 | webtech.wiki">
     <meta property="twitter:description" content="专业的Web技术文档平台，提供前端、后端、数据库、DevOps等全栈开发技术文档和教程">
     <meta property="twitter:image" content="https://webtech.wiki/img/qrcode.jpg">
-    
+
     <!-- 网站图标 -->
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    
+
     <!-- 结构化数据 -->
     <script type="application/ld+json">
     {
@@ -49,30 +51,81 @@
       }
     }
     </script>
-    
+
     <!-- 预连接优化 - 提前建立连接 -->
     <link rel="preconnect" href="https://github.com" crossorigin>
     <link rel="preconnect" href="https://space.bilibili.com" crossorigin>
     <link rel="preconnect" href="https://juejin.cn" crossorigin>
     <link rel="preconnect" href="https://www.zhihu.com" crossorigin>
-    
+
     <!-- 预加载关键资源 -->
     <link rel="preload" href="config.js" as="script">
     <link rel="preload" href="img/qrcode.jpg" as="image">
-    
+
     <!-- DNS预解析 -->
     <link rel="dns-prefetch" href="//beian.miit.gov.cn">
     <link rel="dns-prefetch" href="//www.beian.gov.cn">
-    
+
     <!-- 关键CSS内联优化 -->
     <style>
         /* 关键渲染路径CSS - 首屏必需样式 */
-        *{margin:0;padding:0;box-sizing:border-box}
-        body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','PingFang SC','Hiragino Sans GB','Microsoft YaHei',sans-serif;overflow-x:hidden;background:linear-gradient(135deg,#e3f2fd 0%,#f3e5f5 50%,#fff9c4 100%);color:#333;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility}
-        nav{position:fixed;top:0;left:0;right:0;height:70px;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);z-index:1000;box-shadow:0 2px 10px rgba(0,0,0,0.05);contain:layout style paint}
-        .nav-container{max-width:1400px;margin:0 auto;height:100%;display:flex;justify-content:space-between;align-items:center;padding:0 40px}
-        .logo{font-size:22px;font-weight:600;color:#2196F3;display:flex;align-items:center;gap:10px}
-        .hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;padding:100px 40px 60px}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 50%, #fff9c4 100%);
+            color: #333;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            contain: layout style paint
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 600;
+            color: #2196F3;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 100px 40px 60px
+        }
     </style>
     <style>
         /* 非关键CSS - 完整样式 */
@@ -172,10 +225,23 @@
         }
 
         @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-15px) rotate(5deg); }
-            50% { transform: translateY(0px) rotate(0deg); }
-            75% { transform: translateY(-10px) rotate(-5deg); }
+
+            0%,
+            100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            25% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+
+            50% {
+                transform: translateY(0px) rotate(0deg);
+            }
+
+            75% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
         }
 
         .floating-icon img {
@@ -205,6 +271,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -325,6 +392,7 @@
                 opacity: 0;
                 transform: translateX(50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -359,9 +427,17 @@
             border-radius: 50%;
         }
 
-        .dot-red { background: #ff5f56; }
-        .dot-yellow { background: #ffbd2e; }
-        .dot-green { background: #27c93f; }
+        .dot-red {
+            background: #ff5f56;
+        }
+
+        .dot-yellow {
+            background: #ffbd2e;
+        }
+
+        .dot-green {
+            background: #27c93f;
+        }
 
         .browser-content {
             padding: 40px;
@@ -523,8 +599,15 @@
 
         /* 技术栈动画效果 */
         @keyframes techFloat {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
         }
 
         .tech-item:nth-child(odd) {
@@ -695,6 +778,73 @@
             font-size: 14px;
         }
 
+        /* 跳过导航链接样式 - 屏幕阅读器可访问性 */
+        .skip-to-content {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #2196F3;
+            color: white;
+            padding: 8px 16px;
+            text-decoration: none;
+            z-index: 9999;
+            border-radius: 0 0 4px 0;
+            transition: top 0.3s;
+        }
+
+        .skip-to-content:focus {
+            top: 0;
+            outline: 2px solid #FF9800;
+            outline-offset: 2px;
+        }
+
+        /* 可访问性增强：焦点样式 */
+        a:focus,
+        button:focus,
+        input:focus,
+        .social-icon:focus,
+        .project-link:focus,
+        .search-button:focus {
+            outline: 2px solid #2196F3;
+            outline-offset: 2px;
+        }
+
+        /* 高对比度模式支持 */
+        @media (prefers-contrast: high) {
+            body {
+                background: #ffffff;
+                color: #000000;
+            }
+
+            .hero-left h1 .highlight {
+                color: #0056b3;
+            }
+
+            .social-icon {
+                border: 1px solid #000000;
+            }
+        }
+
+        /* 减少动画偏好 */
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+
+            .floating-icon,
+            .tech-item,
+            .project-card,
+            .blog-card {
+                animation: none !important;
+                transition: none !important;
+            }
+        }
+
         /* 响应式 */
         @media (max-width: 968px) {
             .hero-content-wrapper {
@@ -710,123 +860,128 @@
                 gap: 20px;
             }
 
-            .blog-grid, .projects-grid {
+            .blog-grid,
+            .projects-grid {
                 grid-template-columns: 1fr;
             }
-            
+
             /* 移动端备案信息分两行显示 */
             .footer-bottom p {
                 flex-direction: column !important;
                 gap: 8px !important;
                 line-height: 1.6;
             }
-            
+
             .footer-bottom p span {
                 display: none !important;
             }
         }
-        
+
         @media (max-width: 768px) {
             .nav-container {
                 padding: 0 20px;
             }
-            
+
             .hero {
                 padding: 100px 20px 60px;
             }
-            
+
             .hero-left h1 {
                 font-size: 28px;
             }
-            
+
             .hero-left p {
                 font-size: 16px;
             }
-            
+
             .wechat-section {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
             }
-            
+
             .qr-code {
                 width: 100px;
                 height: 100px;
             }
-            
+
             .tech-stack-section,
             .blog-section,
             .projects-section {
                 padding: 60px 20px;
             }
-            
+
             .section-title {
                 font-size: 24px;
             }
-            
+
             .tech-grid {
                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
                 gap: 20px;
             }
-            
+
             .tech-item {
                 padding: 20px 15px;
             }
-            
+
             .tech-icon {
                 width: 60px;
                 height: 60px;
             }
-            
+
             .tech-name {
                 font-size: 16px;
             }
-            
+
             .tech-description {
                 font-size: 12px;
             }
-            
+
             .projects-grid {
                 gap: 20px;
             }
-            
+
             .project-card {
                 padding: 20px;
             }
-            
+
             .floating-icon img {
                 width: 50px;
                 height: 50px;
             }
         }
-        
+
         @media (max-width: 480px) {
             .hero-left h1 {
                 font-size: 24px;
             }
-            
+
             .social-links {
                 justify-content: center;
                 flex-wrap: wrap;
             }
-            
+
             .tech-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
-            
+
             .nav-links {
                 display: none;
             }
-            
+
             .logo {
                 font-size: 18px;
             }
         }
     </style>
 </head>
+
 <body>
+    <!-- 跳过导航链接（屏幕阅读器辅助功能） -->
+    <a href="#main-content" class="skip-to-content">跳过导航直接进入主要内容</a>
+
     <!-- 导航栏 -->
-    <nav>
+    <nav role="banner" aria-label="主导航">
         <div class="nav-container">
             <div class="logo">web技术文档</div>
             <ul class="nav-links">
@@ -839,78 +994,93 @@
     </nav>
 
     <!-- Hero区域 -->
-    <section class="hero" id="home">
-        <div class="hero-background" id="iconContainer"></div>
-        <div class="hero-content-wrapper">
-            <div class="hero-left">
-                <h1>Hi! 这里是<span class="highlight">web技术文档</span></h1>
-                <p>我是作者，热爱开源的开发者，欢迎一起交流学习。</p>
-                
-                <div class="social-links">
-                    <a href="https://github.com/geekdex" class="social-icon" title="GitHub" target="_blank" rel="noopener">💻</a>
-                    <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩" target="_blank" rel="noopener">📺</a>
-                    <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金" target="_blank" rel="noopener">📘</a>
-                    <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎" target="_blank" rel="noopener">📖</a>
-                    <a href="pan.hy@foxmail.com" class="social-icon" title="邮箱" target="_blank" rel="noopener">✉️</a>
-                </div>
+    <main id="main-content" role="main">
+        <section class="hero" id="home">
+            <div class="hero-background" id="iconContainer"></div>
+            <div class="hero-content-wrapper">
+                <div class="hero-left">
+                    <h1>Hi! 这里是<span class="highlight">web技术文档</span></h1>
+                    <p>我是作者，热爱开源的开发者，欢迎一起交流学习。</p>
 
-                <div class="wechat-section">
-                    <div class="qr-code">
-                        <img src="img/qrcode.webp" alt="微信二维码" style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;" loading="lazy">
+                    <div class="social-links">
+                        <a href="https://github.com/geekdex" class="social-icon" title="GitHub" target="_blank"
+                            rel="noopener">💻</a>
+                        <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩" target="_blank"
+                            rel="noopener">📺</a>
+                        <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金" target="_blank"
+                            rel="noopener">📘</a>
+                        <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎" target="_blank"
+                            rel="noopener">📖</a>
+                        <a href="mailto:pan.hy@foxmail.com" class="social-icon" title="邮箱" target="_blank"
+                            rel="noopener">✉️</a>
                     </div>
-                    <div class="wechat-text">
-                        <div class="wechat-title">微信搜一搜</div>
-                        <button class="search-button">极客开发者</button>
-                    </div>
-                </div>
-            </div>
 
-            <div class="hero-right">
-                <div class="illustration">
-                    <div class="browser-window">
-                        <div class="browser-header">
-                            <div class="browser-dot dot-red"></div>
-                            <div class="browser-dot dot-yellow"></div>
-                            <div class="browser-dot dot-green"></div>
+                    <div class="wechat-section">
+                        <div class="qr-code">
+                            <img src="img/qrcode.webp" alt="微信二维码"
+                                style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;"
+                                loading="lazy">
                         </div>
-                        <div class="browser-content">
-                            <div class="person-illustration">
-                                <div class="person-head"></div>
-                                <div class="laptop"></div>
+                        <div class="wechat-text">
+                            <div class="wechat-title">微信搜一搜</div>
+                            <button class="search-button" aria-label="搜索微信公众号：极客开发者">极客开发者</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="illustration">
+                        <div class="browser-window">
+                            <div class="browser-header">
+                                <div class="browser-dot dot-red"></div>
+                                <div class="browser-dot dot-yellow"></div>
+                                <div class="browser-dot dot-green"></div>
+                            </div>
+                            <div class="browser-content">
+                                <div class="person-illustration" aria-hidden="true">
+                                    <div class="person-head"></div>
+                                    <div class="laptop"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 开发路径展示区域 -->
-    <section class="tech-stack-section" id="tech-stack">
-        <div class="section-header">
-            <h2 class="section-title">开发路径</h2>
-        </div>
-        <div class="tech-stack-container">
-            <div class="tech-grid" id="techStackContainer"></div>
-        </div>
-    </section>
+        <!-- 开发路径展示区域 -->
+        <section class="tech-stack-section" id="tech-stack" aria-labelledby="tech-stack-title">
+            <h2 id="tech-stack-title" class="section-title" style="display: none;">开发路径</h2>
+            <div class="section-header">
+                <h2 class="section-title">开发路径</h2>
+            </div>
+            <div class="tech-stack-container">
+                <div class="tech-grid" id="techStackContainer"></div>
+            </div>
+        </section>
 
-    <!-- 开源项目区域 -->
-    <section class="projects-section" id="projects">
-        <div class="section-header">
-            <h2 class="section-title">开源项目</h2>
-            <a href="#" class="view-more">查看更多 →</a>
-        </div>
-        <div class="projects-grid" id="projectsContainer"></div>
-    </section>
+        <!-- 开源项目区域 -->
+        <section class="projects-section" id="projects" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="section-title" style="display: none;">开源项目</h2>
+            <div class="section-header">
+                <h2 class="section-title">开源项目</h2>
+                <a href="#" class="view-more">查看更多 →</a>
+            </div>
+            <div class="projects-grid" id="projectsContainer"></div>
+        </section>
+
+    </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="footer-bottom">
             <p style="display: flex; align-items: center; justify-content: center; gap: 8px;">
-                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
+                <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener"
+                    style="color: rgba(255, 255, 255, 0.6); text-decoration: none;">黔ICP备2024030886号-2</a>
                 <span style="color: rgba(255, 255, 255, 0.6);">|</span>
-                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank" rel="noopener" style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
+                <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=52263202522684" target="_blank"
+                    rel="noopener"
+                    style="color: rgba(255, 255, 255, 0.6); text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">
                     <img src="img/beian.png" alt="公安备案" style="width: 16px; height: 17px;" loading="lazy">
                     贵公网安备52263202522684号
                 </a>
@@ -920,8 +1090,38 @@
 
     <script src="config.js" defer></script>
     <script defer>
+        // 可访问性增强：聚焦管理
+        document.addEventListener('DOMContentLoaded', function () {
+            // 跳过导航链接功能
+            const skipLink = document.querySelector('.skip-to-content');
+            if (skipLink) {
+                skipLink.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.setAttribute('tabindex', '-1');
+                        target.focus();
+                        setTimeout(() => {
+                            target.removeAttribute('tabindex');
+                        }, 1000);
+                    }
+                });
+            }
+
+            // 为所有交互元素添加键盘导航支持
+            const interactiveElements = document.querySelectorAll('a, button, [tabindex]');
+            interactiveElements.forEach(el => {
+                el.addEventListener('keydown', function (e) {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        this.click();
+                    }
+                });
+            });
+        });
+
         // 延迟加载非关键功能
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // 创建浮动图标
             const iconContainer = document.getElementById('iconContainer');
             const icons = CONFIG.floatingIcons;
@@ -929,41 +1129,41 @@
             icons.forEach((icon, index) => {
                 const iconEl = document.createElement('div');
                 iconEl.className = 'floating-icon';
-                
+
                 // 围绕hero-right区域分布图标
                 // 在右半边区域内分布，但避开中心的插图区域
                 const rightAreaStart = 55; // 右半边开始位置
                 const rightAreaWidth = 40; // 右半边可用宽度
-                
+
                 // 根据原始配置调整到右半边区域
                 let adjustedX = rightAreaStart + (icon.x / 100) * rightAreaWidth;
-                
+
                 // 调整Y坐标，避免图标太靠近顶部
                 let adjustedY = 8 + (icon.y / 100) * 84;
-                
+
                 // 插图区域的中心和范围
                 const centerX = 75; // 插图大概在75%位置
                 const centerY = 50; // 插图大概在50%高度位置
                 const avoidRadius = 18; // 增大避开插图的半径，确保Go和Rust图标不被遮挡
-                
+
                 const distanceFromCenter = Math.sqrt(
-                    Math.pow(adjustedX - centerX, 2) + 
+                    Math.pow(adjustedX - centerX, 2) +
                     Math.pow(adjustedY - centerY, 2)
                 );
-                
+
                 if (distanceFromCenter < avoidRadius) {
                     // 计算从中心到图标的角度
                     const angle = Math.atan2(adjustedY - centerY, adjustedX - centerX);
-                    
+
                     // 将图标推到避让半径之外
                     adjustedX = centerX + Math.cos(angle) * avoidRadius;
                     adjustedY = centerY + Math.sin(angle) * avoidRadius;
-                    
+
                     // 确保图标不会超出边界
                     adjustedX = Math.max(rightAreaStart, Math.min(95, adjustedX));
                     adjustedY = Math.max(8, Math.min(92, adjustedY));
                 }
-                
+
                 iconEl.style.left = adjustedX + '%';
                 iconEl.style.top = adjustedY + '%';
                 iconEl.style.animationDelay = icon.delay + 's';
@@ -981,7 +1181,7 @@
                 mouseY = (e.clientY / window.innerHeight - 0.5) * 2;
             });
 
-            function animate() {
+            function animate () {
                 currentX += (mouseX - currentX) * 0.1;
                 currentY += (mouseY - currentY) * 0.1;
 
@@ -990,17 +1190,17 @@
                     const speed = (index % 3 + 1) * 10; // 减小移动幅度
                     const x = currentX * speed;
                     const y = currentY * speed;
-                    
+
                     // 限制移动范围，确保图标不会移出右半边区域
                     const newX = Math.max(-15, Math.min(15, x));
                     const newY = Math.max(-15, Math.min(15, y));
-                    
+
                     icon.style.transform = `translate(${newX}px, ${newY}px)`;
                 });
 
                 animationId = requestAnimationFrame(animate);
             }
-            
+
             // 使用Intersection Observer优化动画性能
             const heroSection = document.querySelector('.hero');
             const observer = new IntersectionObserver((entries) => {
@@ -1055,4 +1255,5 @@
         });
     </script>
 </body>
+
 </html>
