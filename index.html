@@ -116,8 +116,46 @@
         .hero-left h1 .highlight{color:#2196F3}
         .hero-left p{font-size:18px;color:#666;margin-bottom:40px;line-height:1.6}
         .social-links{display:flex;gap:20px;margin-bottom:40px}
-        .social-icon{width:40px;height:40px;border-radius:10px;background:white;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s;font-size:20px}
+        .social-icon{width:40px;height:40px;border-radius:10px;background:white;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.1);transition:transform .3s,box-shadow .3s;font-size:20px;position:relative}
         .social-icon:hover{transform:translate3d(0,-3px,0);box-shadow:0 4px 12px rgba(33,150,243,.3)}
+        
+        /* 增强 tooltip 显示效果 */
+        .social-icon[title]:hover::after{
+            content:attr(title);
+            position:absolute;
+            bottom:-45px;
+            left:50%;
+            transform:translateX(-50%);
+            background:rgba(0,0,0,.8);
+            color:white;
+            padding:8px 12px;
+            border-radius:6px;
+            font-size:12px;
+            white-space:nowrap;
+            z-index:1000;
+            pointer-events:none;
+            opacity:1;
+            animation:tooltipFadeIn .2s ease-out;
+        }
+        
+        .social-icon[title]:hover::before{
+            content:'';
+            position:absolute;
+            bottom:-35px;
+            left:50%;
+            transform:translateX(-50%);
+            border:5px solid transparent;
+            border-bottom-color:rgba(0,0,0,.8);
+            z-index:1001;
+            pointer-events:none;
+            opacity:1;
+            animation:tooltipFadeIn .2s ease-out;
+        }
+        
+        @keyframes tooltipFadeIn{
+            from{opacity:0;transform:translateX(-50%) translateY(5px)}
+            to{opacity:1;transform:translateX(-50%) translateY(0)}
+        }
         .wechat-section{display:flex;align-items:center;gap:20px}
         .qr-code{width:160px;height:160px;background:white;border-radius:12px;padding:10px;box-shadow:0 4px 12px rgba(0,0,0,.1)}
         .wechat-text{display:flex;flex-direction:column;gap:10px}
@@ -291,16 +329,16 @@
                     <p>我是作者，热爱开源的开发者，欢迎一起交流学习。</p>
 
                     <div class="social-links">
-                        <a href="https://github.com/geekdex" class="social-icon" title="GitHub" target="_blank"
-                            rel="noopener">💻</a>
-                        <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩" target="_blank"
-                            rel="noopener">📺</a>
-                        <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金" target="_blank"
-                            rel="noopener">📘</a>
-                        <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎" target="_blank"
-                            rel="noopener">📖</a>
-                        <a href="mailto:pan.hy@foxmail.com" class="social-icon" title="邮箱" target="_blank"
-                            rel="noopener">✉️</a>
+                        <a href="https://github.com/geekdex" class="social-icon" title="GitHub - 查看我的开源项目" target="_blank"
+                            rel="noopener" aria-label="GitHub - 查看我的开源项目">💻</a>
+                        <a href="https://space.bilibili.com/172353353" class="social-icon" title="哔哩哔哩 - 技术视频分享" target="_blank"
+                            rel="noopener" aria-label="哔哩哔哩 - 技术视频分享">📺</a>
+                        <a href="https://juejin.cn/user/184373686844318" class="social-icon" title="掘金 - 技术文章分享" target="_blank"
+                            rel="noopener" aria-label="掘金 - 技术文章分享">📘</a>
+                        <a href="https://www.zhihu.com/people/jkdev.cn" class="social-icon" title="知乎 - 技术问答交流" target="_blank"
+                            rel="noopener" aria-label="知乎 - 技术问答交流">📖</a>
+                        <a href="mailto:pan.hy@foxmail.com" class="social-icon" title="邮箱 - 联系我" target="_blank"
+                            rel="noopener" aria-label="邮箱 - 联系我">✉️</a>
                     </div>
 
                     <div class="wechat-section">
