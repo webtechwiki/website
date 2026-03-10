@@ -314,7 +314,7 @@
                 <li><a href="#home">首页</a></li>
                 <li><a href="#tech-stack">开发路径</a></li>
                 <li><a href="#projects">开源项目</a></li>
-                <li><a href="https://aoco.tech" target="_blank">博客</a></li>
+                <li><a href="https://blog.algs.tech" target="_blank">博客</a></li>
             </ul>
         </div>
     </nav>
@@ -499,9 +499,14 @@
 
             // 分批创建技术栈
             const techTasks = CONFIG.techStack.map((tech, index) => () => {
-                const item = document.createElement('div');
+                const item = document.createElement('a');
+                item.href = tech.link;
+                item.target = '_blank';
+                item.rel = 'noopener';
                 item.className = 'tech-item';
                 item.style.animationDelay = (index * 0.1) + 's';
+                item.style.textDecoration = 'none';
+                item.style.color = 'inherit';
                 item.innerHTML = `
                     <div class="tech-icon">${tech.icon}</div>
                     <div class="tech-name">${tech.name}</div>
